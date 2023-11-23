@@ -23,3 +23,14 @@ Feature:  User Registration
     | h@h.com | Medium@10!1       | Medium                                       |
     | h@h.com | testing@Softwar@1 | Strong                                       |
 
+  Scenario Outline: Invalid registration
+    Given the "Registration email" field is filled with '<email>'
+    And the 'Registration password' field is filled with '<password>'
+    When the 'Register' button is clicked
+    Then the '<errorMessage>' message is shown in 'registrationError' section
+    Examples:
+      | email   | password          | errorMessage                                                                  |
+      | h@h.com |                   | Error: An account is already registered with your email address. Please login.|
+      | h@h.com | testing@Softwar@1 | Error: An account is already registered with your email address. Please login.|
+      |         |                   | Error: Please provide a valid email address.                                  |
+      | h@h.co  |                   | Error: Please enter an account password.                                      |

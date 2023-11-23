@@ -29,7 +29,8 @@ public class HomePage {
     );
     private static final Map<String, By> errorMessages = Map.of(
             "loginError", By.cssSelector("ul.woocommerce-error"),
-            "regPasswordError",By.cssSelector("div.woocommerce-password-strength")
+            "regPasswordError",By.cssSelector("div.woocommerce-password-strength"),
+            "registrationError", By.cssSelector("ul.woocommerce-error")
 
     );
     private static final Map<String, By> navigationButtons = Map.of(
