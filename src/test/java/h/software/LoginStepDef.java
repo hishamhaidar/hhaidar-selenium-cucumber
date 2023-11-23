@@ -11,10 +11,7 @@ public class LoginStepDef extends AbstractStepDefs {
     public void theFieldIsFilledWithText(String field, String text) {
         homePage.fillOutField(field, text);
     }
-    @Then("the {string} message is shown")
-    public void theErrorMessageMessageIsShown(String errorMessage) {
-        assertEquals(errorMessage, homePage.getErrorMessage());
-}
+
 
     @Then("the my account navigation is visible")
     public void theMyAccountNavigationIsVisible() {

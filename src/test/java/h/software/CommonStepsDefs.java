@@ -3,7 +3,10 @@ package h.software;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CommonStepsDefs extends AbstractStepDefs{
     @Given("the home page is opened")
@@ -18,13 +21,20 @@ public class CommonStepsDefs extends AbstractStepDefs{
     public void theLoginButtonIsClicked(String button) {
         homePage.clickButton(button);
     }
+
+
+    @And("the cookies is accepted")
+    public void theCookiesIsAccepted() {
+        homePage.acceptCookies();
+    }
+
     @AfterAll
     public static void cleanUp() {
         homePage.closePage();
     }
 
-    @And("the cookies is accepted")
-    public void theCookiesIsAccepted() {
-        homePage.acceptCookies();
+    @Then("the {string} message is shown in {string} section")
+    public void theErrorMessageMessageIsShownInLoginErrorSection(String errorMessage, String field) {
+        assertEquals(errorMessage, homePage.getErrorMessage(field));
     }
 }

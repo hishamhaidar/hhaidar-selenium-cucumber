@@ -1,4 +1,4 @@
-Feature: Saucedemo User Login
+Feature:  User Login
 
   Background:
     Given the home page is opened
@@ -9,7 +9,7 @@ Feature: Saucedemo User Login
     Given the 'Username' field is filled with '<username>'
     And the 'Password' field is filled with '<password>'
     When the 'Login' button is clicked
-    Then the '<errorMessage>' message is shown
+    Then the '<errorMessage>' message is shown in 'loginError' section
     Examples:
       | username              | password       | errorMessage|
       |                       |                | Error: Username is required. |
@@ -23,3 +23,4 @@ Feature: Saucedemo User Login
     And the 'Password' field is filled with 'h@h.com123'
     When the 'Login' button is clicked
     Then the my account navigation is visible
+    And the 'Sign out' button is clicked
