@@ -31,6 +31,7 @@ public class CommonStepsDefs extends AbstractStepDefs{
 
     @AfterAll
     public static void cleanUp() {
+        homePage.signOut();
         homePage.closePage();
     }
 

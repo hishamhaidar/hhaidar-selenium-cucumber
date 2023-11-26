@@ -74,7 +74,13 @@ public class HomePage {
     }
 
     public void clickButton(String button) {
-        driver.findElement(navigationButtons.get(button)).click();
+
+        try{
+            driver.findElement(navigationButtons.get(button)).click();
+        }
+        catch (Exception err){
+            driver.findElement(navigationButtons.get(button)).click();
+        }
     }
 
     public void fillOutField(String field, String text) {
