@@ -15,7 +15,7 @@ import java.time.Duration;
 
 public abstract class AbstractStepDefs {
 
-    private static final int WAIT_TIME = 10;
+    private static final int WAIT_TIME = 15;
 
     private static final WebDriver driver;
 
@@ -26,6 +26,8 @@ public abstract class AbstractStepDefs {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
+//        WebDriverManager.firefoxdriver().setup();
+//        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WAIT_TIME));
         homePage = new HomePage(driver);

@@ -38,7 +38,8 @@ public class HomePage {
     private static final Map<String, By> errorMessages = Map.of(
             "loginError", By.cssSelector("ul.woocommerce-error"),
             "regPasswordError",By.cssSelector("div.woocommerce-password-strength"),
-            "registrationError", By.cssSelector("ul.woocommerce-error")
+            "registrationError", By.cssSelector("ul.woocommerce-error"),
+            "checkOutError",By.cssSelector(" ul.woocommerce-error")
 
     );
     private static final Map<String, By> navigationButtons = Map.of(
@@ -128,5 +129,9 @@ public void refreshPage(){
 
     public void fillZipCode(String zip) {
         zipCode.sendKeys(zip);
+    }
+
+    public void goCheckout() {
+        driver.get(PAGE_URL+"/checkout/");
     }
 }

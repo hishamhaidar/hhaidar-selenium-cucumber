@@ -48,3 +48,27 @@ Feature: Shopping
       | HTML5 Forms                      | HTML5 WebApp Develpment    | ₹469.20    |
       | JS Data Structures and Algorithm | Selenium Ruby              | ₹663.00    |
       | HTML5 Forms                      | Mastering JavaScript       | ₹642.60    |
+
+  Scenario Outline: Errors in filling checkout
+    Given the user clicked on the 'Shop' button
+    And the user added 'HTML5 Forms' to the basket
+    Then the 'Basket' button is clicked
+    And the 'Checkout' button is clicked
+    Given the 'first name' field is filled with '<firstName>'
+    And the 'last name' field is filled with '<lastName>'
+    And the 'buyer mail' field is filled with '<email>'
+    And the 'buyer phone' field is filled with '<phoneNb>'
+    And the 'buyer address' field is filled with '<address>'
+    And the 'buyer city' field is filled with '<city>'
+    And zip code is '<zipcode>'
+    And the 'Proceed' button is clicked
+    Then the '<errorMessage>' message is shown in 'checkOutError' section
+
+    Examples:
+       | firstName |  lastName | email   | phoneNb | address | city | zipcode | errorMessage                                 |
+       |           | h         | h@h.com | 1       | h       | h    | 1       |Billing First Name is a required field.       |
+       | h         |           | h@h.com | 1       | h       | h    | 1       |Billing Last Name is a required field.        |
+       | h         | h         |         | 1       | h       | h    | 1       |Billing Email Address is a required field.    |
+       | h         | h         | h@h.com |         | h       | h    | 1       |Billing Phone is a required field.            |
+       | h         | h         | h@h.com | 1       |         | h    | 1       |Billing Address is a required field.          |
+       | h         | h         | h@h.com | 1       | h       |      | 1       |Billing Town / City is a required field.      |

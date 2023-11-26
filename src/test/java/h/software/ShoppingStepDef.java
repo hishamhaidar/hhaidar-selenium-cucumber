@@ -1,6 +1,7 @@
 package h.software;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,5 +32,10 @@ public class ShoppingStepDef extends AbstractStepDefs{
     @And("zip code is {string}")
     public void zipCodeIsZip(String zip) {
         homePage.fillZipCode(zip);
+    }
+
+    @Given("the user visit check out page")
+    public void theUserVisitCheckOutPage() {
+        homePage.goCheckout();
     }
 }
