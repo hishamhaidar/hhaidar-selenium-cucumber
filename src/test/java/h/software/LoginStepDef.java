@@ -13,8 +13,4 @@ public class LoginStepDef extends AbstractStepDefs {
     }
 
 
-    @Then("the my account navigation is visible")
-    public void theMyAccountNavigationIsVisible() {
-        assertTrue(homePage.isNavigationDisplayed());
-    }
 }

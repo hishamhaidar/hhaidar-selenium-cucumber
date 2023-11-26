@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CommonStepsDefs extends AbstractStepDefs{
     @Given("the home page is opened")
@@ -37,4 +38,9 @@ public class CommonStepsDefs extends AbstractStepDefs{
     public void theErrorMessageMessageIsShownInLoginErrorSection(String errorMessage, String field) {
         assertEquals(errorMessage, homePage.getErrorMessage(field));
     }
+    @Then("the my account navigation is visible")
+    public void theMyAccountNavigationIsVisible() {
+        assertTrue(homePage.isNavigationDisplayed());
+    }
+
 }
